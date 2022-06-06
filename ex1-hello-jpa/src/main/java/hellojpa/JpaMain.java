@@ -16,9 +16,9 @@ public class JpaMain {
 		tx.begin();
 		
 		try {
-//			Member member = new Member();
-//			member.setId(1L);
-//			member.setName("HelloA");
+			Member member = new Member();
+			member.setId(1L);
+			member.setName("HelloA");
 			
 			Member findmember = em.find(Member.class, 1L);
 			System.out.println("findMember member name " + findmember.getName());
