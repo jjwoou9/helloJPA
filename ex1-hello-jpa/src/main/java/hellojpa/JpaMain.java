@@ -18,12 +18,9 @@ public class JpaMain {
 		try {
 			Member member = new Member();
 			member.setId(1L);
-			member.setName("HelloA");
-			
-			Member findmember = em.find(Member.class, 1L);
-			System.out.println("findMember member name " + findmember.getName());
-//			em.persist(member);
-			
+			member.setAge(20);
+			member.setUsername("AAA");
+			member.setRoleType(RoleType.USER);
 			tx.commit();
 			
 		} catch (Exception e) {
