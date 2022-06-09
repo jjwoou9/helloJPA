@@ -5,14 +5,14 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@TableGenerator( 
+@SequenceGenerator( 
 		 name = "MEMBER_SEQ_GENERATOR", 
-		 table = "MY_SEQUENCES", 
-		 pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
+		 sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
+		 initialValue = 1, allocationSize = 50) 
 public class Member {
 	
 	@Id 
-	@GeneratedValue(strategy = GenerationType.TABLE, 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, 
 	 generator = "MEMBER_SEQ_GENERATOR")
 	private Long id;
 	@Column(name = "name", nullable = false, unique = true)
@@ -38,4 +38,5 @@ public class Member {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 }
